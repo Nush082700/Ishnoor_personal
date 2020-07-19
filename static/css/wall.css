@@ -1,0 +1,134 @@
+$home: #05386b;
+$pictures: #379683;
+$wall: #5cdb95;
+$background: #edf5e1;
+$shadow: #CCCCCC;
+$illumination: #fdc6be;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body  {
+  background: $background;
+  font-family: 'Roboto', sans-serif;
+  text-transform:uppercase;
+  text-shadow: .5px .5px 0 $shadow;
+}
+
+.background {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: .75s;
+}
+
+.nav{
+  padding: 0px;
+  width: 640px;
+  margin: 10px auto auto auto;
+}
+
+ul{
+  list-style-type: none;
+}
+
+li a{
+  padding: 30px;
+  float:left;
+  width: 100px;
+  text-align:center;
+  font-size:15px;
+  color: $background;
+  text-decoration:none;
+}
+
+li a:hover .circle {
+  position: relative;
+  z-index: 1;
+  top: -60px;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  animation: illuminate 2s ease-out infinite;
+  background: $illumination;
+}
+
+li i{
+  height: 50px;
+}
+
+li a:hover i {
+  transform: translateY(-10px);
+}
+
+li a .title{
+  font-size:0px;
+}
+
+li a:hover .title {
+  transform: translateY(10px);
+  font-size: 15px;
+  transition: .5s;
+}
+
+li a.title:hover{
+  transform: translateY(-10px);
+}
+
+.nav li:first-child a {
+  background:$home !important;
+}
+
+.nav li:nth-child(2) a {
+  background:$pictures !important;
+}
+
+.nav li:nth-child(3) a {
+  background:$wall !important;
+}
+
+.nav li:first-child:hover ~ .background {
+  background: $home;
+}
+.nav li:nth-child(2):hover ~ .background {
+  background: $pictures;
+}
+.nav li:nth-child(3):hover ~ .background {
+  background: $wall;
+}
+
+@keyframes illuminate {
+  0% {
+    transform: scale(.7, .7);
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100%{
+    transform: scale(1.15);
+    opacity: 0;
+  }
+}
+
+.github {
+  height: 120px;
+  width: 240px;
+  display: none;
+}
+
+.brickwall {
+  height: 120px;
+  width: 240px;
+  display: block;
+  background:linear-gradient(163deg, transparent 0px, transparent 1px, #222 1px, #222 14px, transparent 14px),
+    linear-gradient(161deg, transparent 0px, #181818 1px, #222 2px, #222 15px, transparent 15px),
+    linear-gradient(343deg, transparent 0px, transparent 1px, #222 1px, #222 14px, transparent 14px),
+    linear-gradient(343deg, transparent 0px, transparent 1px, #222 1px, #222 14px, transparent 14px);
+  background-color: #121212;
+  background-position: 2px 1px, 23px 16px,48px 15px, 21px 30px;
+  background-size: 48px 30px;
+
+}
