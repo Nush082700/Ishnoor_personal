@@ -4,10 +4,7 @@ import os
 app = Flask(__name__)
 
 
-@app.route('/pictures')
-def wall_pictures():
-    return render_template('picture_wall.html')
-    #return 'this is a wall of pictures'
+
 
 @app.route('/', methods = ['GET','POST'])
 def main_page():
@@ -17,13 +14,22 @@ def main_page():
     
     # return "Hello World!"
 
+@app.route('/pictures',  methods = ['GET','POST'])
+def wall_pictures():
+    if request.method == 'POST':
+        return redirect(url_for('newsletter_msg'))
+    return render_template('picture_wall.html')
+    #return 'this is a wall of pictures'
 
-@app.route('/newsletter')
+@app.route('/newsletter_1')
 def newsletter_msg():
     return render_template('newspaper.html')
     #return "this is the newsletter feature"
 
-
+@app.route('/newsletter_2')
+def newsletter_msg_2():
+    return render_template('newspaper_1.html')
+    #return "this is the newsletter feature"
 
 
 
