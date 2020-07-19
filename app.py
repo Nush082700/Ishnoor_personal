@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, render_template
+import os
 
 app = Flask(__name__)
 
@@ -15,9 +16,13 @@ def newsletter_msg():
 
 @app.route('/pictures')
 def wall_pictures():
-    return 'this is a wall of pictures'
+    return render_template('picture_wall.html')
+    #return 'this is a wall of pictures'
 
 
 @app.route('/wall')
 def fourth_wall():
     return 'this is the fourth wall'
+
+if __name__ == '__main__':
+    app.run(debug = True)
