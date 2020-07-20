@@ -1,53 +1,68 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8" />
-    <title>Happy Birthday</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/wall.css') }}"
     />
     <script
+      src="https://kit.fontawesome.com/6c36d92623.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <meta charset="utf-8" />
+    <title>Happy Birthday</title>
+  </head>
+  <body>
+    <br />
+    <ul class="nav">
+      <li>
+        <a href="{{ url_for('main_page') }}" target="_blank">
+          <i class="fas fa-home fa-3x home"> <div class="circle"></div> </i>
+          <div class="title">Home</div>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('wall_pictures') }}" target="_blank">
+          <i class="fa fa-camera fa-3x camera"> <div class="circle"></div> </i>
+          <div class="title">Pictures</div>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('newsletter_msg') }}" target="_blank">
+          <i class="fas fa-newspaper fa-3x newspaper">
+            <div class="circle"></div>
+          </i>
+          <div class="title">Newsletter</div>
+        </a>
+      </li>
+    </ul>
+    <br />
+    <br />
+    <br />
+    <br /><br />
+    <br />
+    <br />
+    <br />
+    <div class="changetext" id="changetext">
+      <br />
+      <b>Punch </b>through(20 times)!! We have to break this wall!
+    </div>
+    <div class="brickwall" id="brickwall">
+      <div class="github" id="github">
+        <a href="https://github.com/Nush082700/Ishnoor_personal/tree/master">
+          <center>
+            <img
+              class="w3-rounded"
+              src="{{url_for('static', filename='photos/Github.png') }}"
+            />
+          </center>
+        </a>
+      </div>
+    </div>
+    <script
       type="text/javascript"
       src="{{ url_for('static', filename='js/wall.js') }}"
     ></script>
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <strong>
-          <ul class="nav">
-            <li>
-              <a>
-                <div class="circle"></div>
-                <div class="title">Home</div>
-              </a>
-            </li>
-            <li>
-              <a>
-                <div class="circle"></div>
-                <div class="title">Pictures</div>
-              </a>
-            </li>
-            <li>
-              <a>
-                <div class="circle"></div>
-                <div class="title">Wall</div>
-              </a>
-            </li>
-          </ul></strong
-        >
-      </div>
-    </header>
-    <div id="changetext">
-      <strong>Punch </strong>through!! We have to break this fourth wall!
-    </div>
-    <div id="brickwall">
-      <div id="github">
-        <a href="https://github.com/Nush082700/Ishnoor_personal/tree/master">
-          <img src="{{url_for('static', filename='photos/Github.png') }}"
-        /></a>
-      </div>
-    </div>
   </body>
 </html>
