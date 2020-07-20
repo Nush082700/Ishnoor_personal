@@ -21,13 +21,18 @@ def wall_pictures():
     return render_template('picture_wall.html')
     #return 'this is a wall of pictures'
 
-@app.route('/newsletter_1')
+@app.route('/newsletter_1',  methods = ['GET','POST'])
 def newsletter_msg():
+    if request.method == 'POST':
+        print ("this is a POST method")
+        return redirect(url_for('newsletter_msg_2'))
     return render_template('newspaper.html')
     #return "this is the newsletter feature"
 
-@app.route('/newsletter_2')
+@app.route('/newsletter_2',  methods = ['GET','POST'])
 def newsletter_msg_2():
+    if request.method == 'POST':
+        return redirect(url_for('fourth_wall'))
     return render_template('newspaper_1.html')
     #return "this is the newsletter feature"
 
@@ -35,7 +40,8 @@ def newsletter_msg_2():
 
 @app.route('/wall')
 def fourth_wall():
-    return 'this is the fourth wall'
+    return render_template('wall.html')
+    # return 'this is the fourth wall'
 
 if __name__ == '__main__':
     app.run(debug = True)
